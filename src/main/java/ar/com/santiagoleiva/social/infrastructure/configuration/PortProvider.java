@@ -2,9 +2,10 @@ package ar.com.santiagoleiva.social.infrastructure.configuration;
 
 import ar.com.santiagoleiva.social.application.port.CreateTweetPort;
 import ar.com.santiagoleiva.social.application.port.FindUserPort;
+import ar.com.santiagoleiva.social.infrastructure.jdbc.TweetJdbcCrudRepository;
+import ar.com.santiagoleiva.social.infrastructure.jdbc.TweetJdbcRepository;
 import ar.com.santiagoleiva.social.infrastructure.jdbc.UserJdbcCrudRepository;
 import ar.com.santiagoleiva.social.infrastructure.jdbc.UserJdbcRepository;
-import ar.com.santiagoleiva.social.infrastructure.mock.MockCreateTweetPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,8 +13,8 @@ import org.springframework.context.annotation.Configuration;
 public class PortProvider {
 
     @Bean
-    public CreateTweetPort createTweetPort() {
-        return new MockCreateTweetPort();
+    public CreateTweetPort createTweetPort(TweetJdbcCrudRepository tweetJdbcCrudRepository) {
+        return new TweetJdbcRepository(tweetJdbcCrudRepository);
     }
 
     @Bean
