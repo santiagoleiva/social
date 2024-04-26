@@ -33,12 +33,12 @@ public class CreateTweetUseCase {
     }
 
     public Tweet execute(Long userId, String content) {
-        validateContent(content);
+        doValidations(content);
         final User user = getUserById(userId);
         return createTweet(content, user);
     }
 
-    private void validateContent(String content) {
+    private void doValidations(String content) {
         if (isNull(content)) {
             throw new InvalidException(INVALID_CONTENT_MESSAGE);
         }
