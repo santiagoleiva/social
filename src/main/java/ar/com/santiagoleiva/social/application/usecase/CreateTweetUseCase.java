@@ -25,7 +25,12 @@ public class CreateTweetUseCase {
     private final CreateTweetPort createTweetPort;
     private final FindUserPort findUserPort;
 
-    public CreateTweetUseCase(Clock clock, TweetsConfiguration tweetsConfiguration, CreateTweetPort createTweetPort, FindUserPort findUserPort) {
+    public CreateTweetUseCase(
+            Clock clock,
+            TweetsConfiguration tweetsConfiguration,
+            CreateTweetPort createTweetPort,
+            FindUserPort findUserPort
+    ) {
         this.clock = clock;
         this.tweetsConfiguration = tweetsConfiguration;
         this.createTweetPort = createTweetPort;
