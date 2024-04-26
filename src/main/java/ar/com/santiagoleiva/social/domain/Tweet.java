@@ -1,5 +1,6 @@
 package ar.com.santiagoleiva.social.domain;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-public record Tweet(Long id, String content, User user, LocalDate createdAt) {}
+public record Tweet(Long id, String content, User user, LocalDateTime createdAt) {
+}
