@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
 public class MockCreateTweetPort implements CreateTweetPort {
 
     @Override
-    public Tweet create(String content, User user) {
-        return new Tweet(1L, content, user, LocalDateTime.now());
+    public Tweet create(String content, User user, LocalDateTime createdAt) {
+        return new Tweet(1L, content, user, createdAt);
     }
 
 }

@@ -9,7 +9,7 @@ public class MockFindUserPort implements FindUserPort {
 
     @Override
     public Optional<User> byId(Long id) {
-        return Optional.of(new User(1L, "nomi.marks"));
+        return Optional.of(new User(id, "some_user"));
     }
 
 }
