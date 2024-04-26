@@ -4,16 +4,21 @@ import ar.com.santiagoleiva.social.application.port.CreateTweetPort;
 import ar.com.santiagoleiva.social.application.port.FindUserPort;
 import ar.com.santiagoleiva.social.domain.Tweet;
 import ar.com.santiagoleiva.social.domain.User;
+import ar.com.santiagoleiva.social.domain.exception.InvalidException;
+import ar.com.santiagoleiva.social.domain.exception.NonProcessableException;
+import ar.com.santiagoleiva.social.domain.exception.NotFoundException;
 import ar.com.santiagoleiva.social.infrastructure.configuration.BeanProvider.TweetsConfiguration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.time.Clock;
 import java.time.LocalDateTime;
 
+import static java.util.Objects.isNull;
+
 public class CreateTweetUseCase {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CreateTweetUseCase.class);
+    private static final String INVALID_CONTENT_MESSAGE = "Content must not be null";
+    private static final String INVALID_CONTENT_LENGTH_MESSAGE_FORMAT = "The character limit has been exceeded (%d)";
+    private static final String USER_NOT_FOUND_MESSAGE_FORMAT = "User '%d' not found";
 
     private final Clock clock;
     private final TweetsConfiguration tweetsConfiguration;
@@ -34,13 +39,18 @@ public class CreateTweetUseCase {
     }
 
     private void validateContent(String content) {
+        if (isNull(content)) {
+            throw new InvalidException(INVALID_CONTENT_MESSAGE);
+        }
+
         if (content.length() > tweetsConfiguration.maxLength()) {
-            throw new IllegalArgumentException();
+            throw new NonProcessableException(INVALID_CONTENT_LENGTH_MESSAGE_FORMAT.formatted(tweetsConfiguration.maxLength()));
         }
     }
 
     private User getUserById(Long userId) {
-        return findUserPort.byId(userId).orElseThrow();
+        return findUserPort.byId(userId)
+                .orElseThrow(() -> new NotFoundException(USER_NOT_FOUND_MESSAGE_FORMAT.formatted(userId)));
     }
 
     private Tweet createTweet(String content, User user) {
