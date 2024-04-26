@@ -1,4 +1,4 @@
-package ar.com.santiagoleiva.social.infrastructure;
+package ar.com.santiagoleiva.social.infrastructure.configuration;
 
 import ar.com.santiagoleiva.social.application.port.CreateTweetPort;
 import ar.com.santiagoleiva.social.application.port.FindUserPort;

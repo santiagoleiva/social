@@ -16,7 +16,11 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly 'org.postgresql:postgresql'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.liquibase:liquibase-core'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

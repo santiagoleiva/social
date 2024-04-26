@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  social-db:
+    image: postgres:16.2-alpine
+    platform: linux/amd64
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: social
+      POSTGRES_USER: social-user
+      POSTGRES_PASSWORD: social-password

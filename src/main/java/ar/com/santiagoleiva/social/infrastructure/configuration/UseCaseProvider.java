@@ -1,9 +1,9 @@
-package ar.com.santiagoleiva.social.infrastructure;
+package ar.com.santiagoleiva.social.infrastructure.configuration;
 
 import ar.com.santiagoleiva.social.application.port.CreateTweetPort;
 import ar.com.santiagoleiva.social.application.port.FindUserPort;
 import ar.com.santiagoleiva.social.application.usecase.PublishTweetUseCase;
-import ar.com.santiagoleiva.social.infrastructure.ConfigurationProvider.TweetsConfiguration;
+import ar.com.santiagoleiva.social.infrastructure.configuration.BeanProvider.TweetsConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

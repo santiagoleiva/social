@@ -1,0 +1,121 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "202404252156-create-table-user-tweet-follower",
+        "author": "santiago.leiva",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "user",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "bigint",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "username",
+                    "type": "varchar(60)",
+                    "constraints": {
+                      "nullable": false,
+                      "unique": true
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "tweet",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "bigint",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "content",
+                    "type": "varchar(280)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "bigint",
+                    "constraints": {
+                      "nullable": false,
+                      "foreignKeyName": "fk_tweet_user",
+                      "referencedTableName": "user",
+                      "referencedColumnNames": "id"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "follow",
+              "columns": [
+                {
+                  "column": {
+                    "name": "follower_user_id",
+                    "type": "bigint",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false,
+                      "foreignKeyName": "fk_follow_user_follower",
+                      "referencedTableName": "user",
+                      "referencedColumnNames": "id"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "followed_user_id",
+                    "type": "bigint",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false,
+                      "foreignKeyName": "fk_follow_user_followed",
+                      "referencedTableName": "user",
+                      "referencedColumnNames": "id"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

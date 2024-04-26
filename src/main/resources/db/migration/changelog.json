@@ -1,0 +1,10 @@
+{
+  "databaseChangeLog": [
+    {
+      "include": {
+        "file": "202404252156-create-table-user-tweet-follower.json",
+        "relativeToChangelogFile": true
+      }
+    }
+  ]
+}
