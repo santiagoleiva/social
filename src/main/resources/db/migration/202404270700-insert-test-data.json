@@ -31,6 +31,19 @@
               ],
               "tableName": "user"
             }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "username",
+                    "value": "jesse.pinkman"
+                  }
+                }
+              ],
+              "tableName": "user"
+            }
           }
         ]
       }
