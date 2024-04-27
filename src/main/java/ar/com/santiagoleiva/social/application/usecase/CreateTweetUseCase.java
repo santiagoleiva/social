@@ -6,7 +6,6 @@ import ar.com.santiagoleiva.social.domain.Tweet;
 import ar.com.santiagoleiva.social.domain.User;
 import ar.com.santiagoleiva.social.domain.exception.InvalidException;
 import ar.com.santiagoleiva.social.domain.exception.NonProcessableException;
-import ar.com.santiagoleiva.social.domain.exception.NotFoundException;
 import ar.com.santiagoleiva.social.infrastructure.configuration.BeanProvider.TweetsConfiguration;
 
 import java.time.Clock;
@@ -18,7 +17,6 @@ public class CreateTweetUseCase {
 
     private static final String INVALID_CONTENT_MESSAGE = "Content must not be null";
     private static final String INVALID_CONTENT_LENGTH_MESSAGE_FORMAT = "The character limit has been exceeded (%d)";
-    private static final String USER_NOT_FOUND_MESSAGE_FORMAT = "User '%d' not found";
 
     private final Clock clock;
     private final TweetsConfiguration tweetsConfiguration;
@@ -54,8 +52,7 @@ public class CreateTweetUseCase {
     }
 
     private User getUserById(Long userId) {
-        return findUserPort.byId(userId)
-                .orElseThrow(() -> new NotFoundException(USER_NOT_FOUND_MESSAGE_FORMAT.formatted(userId)));
+        return findUserPort.byIdOrThrow(userId);
     }
 
     private Tweet createTweet(String content, User user) {
