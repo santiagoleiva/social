@@ -9,10 +9,10 @@ public interface FindUserPort {
 
     String USER_NOT_FOUND_MESSAGE_FORMAT = "User '%d' not found";
 
-    Optional<User> byId(Long id);
+    Optional<User> findById(Long id);
 
-    default User byIdOrThrow(Long id) {
-        return byId(id).orElseThrow(() -> new NotFoundException(USER_NOT_FOUND_MESSAGE_FORMAT.formatted(id)));
+    default User findByIdOrThrow(Long id) {
+        return findById(id).orElseThrow(() -> new NotFoundException(USER_NOT_FOUND_MESSAGE_FORMAT.formatted(id)));
     }
 
 }

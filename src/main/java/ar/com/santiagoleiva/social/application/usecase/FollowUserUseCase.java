@@ -31,7 +31,7 @@ public class FollowUserUseCase {
     }
 
     private User getUserById(Long followerId) {
-        return findUserPort.byIdOrThrow(followerId);
+        return findUserPort.findByIdOrThrow(followerId);
     }
 
     private void saveRelation(User follower, User followed) {

@@ -52,7 +52,7 @@ public class CreateTweetUseCase {
     }
 
     private User getUserById(Long userId) {
-        return findUserPort.byIdOrThrow(userId);
+        return findUserPort.findByIdOrThrow(userId);
     }
 
     private Tweet createTweet(String content, User user) {

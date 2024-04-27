@@ -17,7 +17,7 @@ public class UserJdbcRepository implements FindUserPort, FollowUserPort {
     }
 
     @Override
-    public Optional<User> byId(Long id) {
+    public Optional<User> findById(Long id) {
         return userJdbcCrudRepository.findById(id)
                 .map(UserJdbcModel::toDomain);
     }
