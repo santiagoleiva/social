@@ -14,20 +14,29 @@ import org.springframework.context.annotation.Configuration;
 public class PortProvider {
 
     @Bean
-    public CreateTweetPort createTweetPort(TweetJdbcCrudRepository tweetJdbcCrudRepository) {
+    public UserJdbcRepository userJdbcRepository(UserJdbcCrudRepository userJdbcCrudRepository) {
+        return new UserJdbcRepository(userJdbcCrudRepository);
+    }
+
+    @Bean
+    public TweetJdbcRepository tweetJdbcRepository(TweetJdbcCrudRepository tweetJdbcCrudRepository) {
         return new TweetJdbcRepository(tweetJdbcCrudRepository);
     }
 
     @Bean
     public FindUserPort findUserPort(UserJdbcCrudRepository userJdbcCrudRepository) {
-        return new UserJdbcRepository(userJdbcCrudRepository);
+        return userJdbcRepository(userJdbcCrudRepository);
     }
 
     @Bean
-    public FollowUserPort followUserPort() {
-        return (follower, followed) -> {
-            throw new IllegalStateException("Not implemented yet");
-        };
+    public FollowUserPort followUserPort(UserJdbcCrudRepository userJdbcCrudRepository) {
+        return userJdbcRepository(userJdbcCrudRepository);
     }
+
+    @Bean
+    public CreateTweetPort createTweetPort(TweetJdbcCrudRepository tweetJdbcCrudRepository) {
+        return tweetJdbcRepository(tweetJdbcCrudRepository);
+    }
+
 
 }
