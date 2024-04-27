@@ -2,6 +2,7 @@ package ar.com.santiagoleiva.social.infrastructure.configuration;
 
 import ar.com.santiagoleiva.social.application.port.CreateTweetPort;
 import ar.com.santiagoleiva.social.application.port.FindUserPort;
+import ar.com.santiagoleiva.social.application.port.FollowUserPort;
 import ar.com.santiagoleiva.social.infrastructure.jdbc.TweetJdbcCrudRepository;
 import ar.com.santiagoleiva.social.infrastructure.jdbc.TweetJdbcRepository;
 import ar.com.santiagoleiva.social.infrastructure.jdbc.UserJdbcCrudRepository;
@@ -20,6 +21,13 @@ public class PortProvider {
     @Bean
     public FindUserPort findUserPort(UserJdbcCrudRepository userJdbcCrudRepository) {
         return new UserJdbcRepository(userJdbcCrudRepository);
+    }
+
+    @Bean
+    public FollowUserPort followUserPort() {
+        return (follower, followed) -> {
+            throw new IllegalStateException("Not implemented yet");
+        };
     }
 
 }
