@@ -12,7 +12,9 @@ public record UserJdbcModel(
         @Id Long id,
         String username,
         @MappedCollection(idColumn = "followed_user_id")
-        Set<FollowerReferenceModel> followers
+        Set<FollowerReferenceModel> followers,
+        @MappedCollection(idColumn = "follower_user_id")
+        Set<FollowingReferenceModel> following
 ) {
 
     public User toDomain() {
