@@ -1,0 +1,39 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "202404270700-insert-test-data",
+        "author": "santiago.leiva",
+        "context": "test",
+        "changes": [
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "username",
+                    "value": "walter.white"
+                  }
+                }
+              ],
+              "tableName": "user"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "username",
+                    "value": "saul.goodman"
+                  }
+                }
+              ],
+              "tableName": "user"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
