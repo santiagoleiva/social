@@ -19,7 +19,7 @@ public class FollowUserUseCase {
         this.followUserPort = followUserPort;
     }
 
-    void execute(Long followerId, Long followedId) {
+    public void execute(Long followerId, Long followedId) {
         doValidations(followerId, followedId);
         saveRelation(getUserById(followerId), getUserById(followedId));
     }

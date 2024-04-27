@@ -11,8 +11,8 @@ import java.util.Set;
 public record UserJdbcModel(
         @Id Long id,
         String username,
-        @MappedCollection(idColumn = "follower_user_id")
-        Set<UserJdbcModel> followers
+        @MappedCollection(idColumn = "followed_user_id")
+        Set<FollowerReferenceModel> followers
 ) {
 
     public User toDomain() {
