@@ -8,6 +8,6 @@ public interface UserFollowPort {
 
     void saveFollow(User follower, User followed);
 
-    List<User> getFollowedUsersByUserId();
+    List<User> getFollowedUsersByUserId(Long followerUserId);
 
 }

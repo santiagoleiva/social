@@ -31,7 +31,8 @@ public class UserJdbcRepository implements FindUserPort, UserFollowPort {
     }
 
     @Override
-    public List<User> getFollowedUsersByUserId() {
+    public List<User> getFollowedUsersByUserId(Long followerUserId) {
+        userJdbcCrudRepository.findByFollowersFollowerUserId(followerUserId);
         throw new IllegalStateException("Not implemented yet");
     }
 
