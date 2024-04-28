@@ -155,6 +155,8 @@ curl --location 'http://localhost:8080/api/v1/users/2/timeline'
 
 Respuesta esperada en caso de éxito
 
+`200 OK`
+
 ```json
 [
   {
