@@ -59,3 +59,11 @@ docker-compose up --build -d
 ```
 
 Siguiendo estos pasos, se levantará la aplicación en el puerto `8080`.
+
+El ambiente de pruebas cuenta con tres usuarios:
+
+|Id|Username|
+|-|-|
+|1|walter.white|
+|2|jesse.pinkman|
+|3|saul.goodman|
