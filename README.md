@@ -7,6 +7,9 @@
   - [📋 Pre-requisitos](#-pre-requisitos)
   - [✅ Pruebas en entorno local](#-pruebas-en-entorno-local)
     - [📋 Casos de uso](#-casos-de-uso)
+      - [Tweets](#tweets)
+      - [Follow](#follow)
+      - [Timeline](#timeline)
 
 ## 🏗️ Arquitectura y componentes de la aplicación
 
