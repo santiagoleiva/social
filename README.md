@@ -28,4 +28,7 @@ En resumen, este enfoque permite construir una aplicación más sólida y flexib
 
 ### 📋 Pre-requisitos
 
+- Java (17.*)
+- Docker Compose
+
 ### ✅ Pruebas en entorno local
