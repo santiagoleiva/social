@@ -6,6 +6,7 @@
 - [🚀 Levantar el proyecto](#-levantar-el-proyecto)
   - [📋 Pre-requisitos](#-pre-requisitos)
   - [✅ Pruebas en entorno local](#-pruebas-en-entorno-local)
+    - [📋 Casos de uso](#-casos-de-uso)
 
 ## 🏗️ Arquitectura y componentes de la aplicación
 
@@ -58,7 +59,7 @@ Una vez finalizada la instancia de build, ejecutar el siguiente comando:
 docker-compose up --build -d
 ```
 
-Siguiendo estos pasos, se levantará la aplicación en el puerto `8080`.
+Siguiendo estos pasos, se podrán probar los endpoints de la aplicación a través de `http://localhost:8080/`.
 
 El ambiente de pruebas cuenta con tres usuarios:
 
@@ -67,3 +68,93 @@ El ambiente de pruebas cuenta con tres usuarios:
 |1|walter.white|
 |2|jesse.pinkman|
 |3|saul.goodman|
+
+#### 📋 Casos de uso
+
+##### Tweets
+
+- `HTTP POST /api/v1/users/{userId}/tweets`
+
+Cuerpo de petición
+
+```json
+{
+  "content": "..."
+}
+```
+
+Ejemplo con cURL
+
+```bash
+curl --location 'http://localhost:8080/api/v1/users/1/tweets' \
+--header 'Content-Type: application/json' \
+--data '{
+    "content": "I am the danger"
+}'
+```
+
+Respuesta esperada en caso de éxito
+
+`201 Created`
+
+```json
+{
+  "id": 1,
+  "content": "I am the danger",
+  "created_at": "2024-04-28T10:00:00.000",
+  "user": {
+    "id": 1,
+    "username": "walter.white"
+  }
+}
+```
+
+##### Follow
+
+- `HTTP POST /api/v1/users/{userId}/follows`
+
+Cuerpo de petición
+
+```json
+{
+  "followed_user_id": 1
+}
+```
+
+Ejemplo con cURL
+
+```bash
+curl --location 'http://localhost:8080/api/v1/users/3/follows' \
+--header 'Content-Type: application/json' \
+--data '{
+    "followed_user_id": 1
+}'
+```
+
+Respuesta esperada en caso de éxito
+
+`204 No Content`
+
+##### Timeline
+
+- `HTTP GET /api/v1/users/{userId}/timeline`
+
+```bash
+curl --location 'http://localhost:8080/api/v1/users/2/timeline'
+```
+
+Respuesta esperada en caso de éxito
+
+```json
+[
+  {
+    "id": 1,
+    "content": "I am the danger",
+    "created_at": "2024-04-28T10:00:00.000",
+    "user": {
+      "id": 1,
+      "username": "walter.white"
+    }
+  }
+]
+```
