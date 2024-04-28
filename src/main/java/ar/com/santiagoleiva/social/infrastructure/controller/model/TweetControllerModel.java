@@ -9,10 +9,15 @@ import java.time.LocalDateTime;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public record TweetControllerModel(Long id, String content, LocalDateTime createdAt) {
+public record TweetControllerModel(Long id, String content, LocalDateTime createdAt, UserControllerModel user) {
 
     public static TweetControllerModel fromDomain(Tweet tweet) {
-        return new TweetControllerModel(tweet.id(), tweet.content(), tweet.createdAt());
+        return new TweetControllerModel(
+                tweet.id(),
+                tweet.content(),
+                tweet.createdAt(),
+                UserControllerModel.fromDomain(tweet.user())
+        );
     }
 
 }
