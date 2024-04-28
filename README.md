@@ -10,6 +10,7 @@
       - [Tweets](#tweets)
       - [Follow](#follow)
       - [Timeline](#timeline)
+- ⚠️ [To-Do](#-to-do)
 
 ## 🏗️ Arquitectura y componentes de la aplicación
 
@@ -170,3 +171,11 @@ Respuesta esperada en caso de éxito
   }
 ]
 ```
+
+## ⚠️ To-Do
+
+Cosas para agregar/mejorar
+
+- Agregar UML con el fin de enriquecer la documentación
+- Implementar una caché para optimizar la recuperación de Tweets (Redis, Caffeine o similar).
+- Utilizar algún sistema de mensajería (Kafka o RabbitMQ) para que al momento en el que un usuario sigue a uno nuevo y/o se agregan nuevos Tweets, se envíe una notificación para que se actualicen las caché de timeline del usuario.
