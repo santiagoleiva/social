@@ -37,6 +37,7 @@ En resumen, este enfoque permite construir una aplicación más sólida y flexib
 ## 🛠 Hecho con
 
 - Java (JDK 17)
+- Gradle
 - SpringBoot (v3.2.5)
 - Spring Data JDBC
 - PostgreSQL
@@ -50,13 +51,19 @@ En resumen, este enfoque permite construir una aplicación más sólida y flexib
 
 ### ✅ Pruebas en entorno local
 
-En una terminal, ubicados en la raíz del proyecto ejecutar el siguiente comando:
+Para correr las pruebas unitarias del proyecto, ejecutar en una terminal ubicados en la raíz el proyecto el siguiente comando:
+
+```bash
+./gradlew test
+```
+
+Para hacer `build`, ubicados en la raíz del proyecto ejecutar el siguiente comando:
 
 ```bash
 ./gradlew clean build
 ```
 
-Una vez finalizada la instancia de build, ejecutar el siguiente comando:
+Una vez finalizada la instancia de `build`, ejecutar el siguiente comando:
 
 ```bash
 docker-compose up --build -d
