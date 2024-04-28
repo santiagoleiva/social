@@ -1,19 +1,19 @@
-# social
+# 🐦 social
 
-- [Arquitectura y componentes de la aplicación](#arquitectura-y-componentes-de-la-aplicación)
-  - [Estructura / Taxonomía de paquetes](#estructura--taxonomía-de-paquetes)
-- [Levantar el proyecto](#levantar-el-proyecto)
-    - [Pre-requisitos](#pre-requisitos)
-    - [Pruebas en entorno local](#pruebas-en-entorno-local)
+- [🏗️ Arquitectura y componentes de la aplicación](#-arquitectura-y-componentes-de-la-aplicación)
+  - [📦 Estructura / Taxonomía de paquetes](#)
+- [▶️ Levantar el proyecto](#)
+    - [📋 Pre-requisitos](#)
+    - [✅ Pruebas en entorno local](#)
 
-## Arquitectura y componentes de la aplicación
+## 🏗️ Arquitectura y componentes de la aplicación
 
 Se opta por un enfoque orientado a la arquitectura hexagonal ya que simplifica el desarrollo al separar la lógica principal de la aplicación de los detalles técnicos.
 Esto hace que el código sea más fácil de mantener y probar, lo que ayuda a desarrollar de forma más rápida y segura.
 
 En resumen, este enfoque permite construir una aplicación más sólida y flexible.
 
-### Estructura / Taxonomía de paquetes
+### 📦 Estructura / Taxonomía de paquetes
 
 - `application`: Puente entre las capas de dominio e infraestructura.
   - `port`: Definición de los puertos de salida de la aplicación que serán implementados en la capa de infraestructura.
@@ -24,8 +24,8 @@ En resumen, este enfoque permite construir una aplicación más sólida y flexib
   - `[nombre-tecología]`: Teconología específica que implementa el puerto de entrada/salida (Ej: _jdbc_, _redis_, _controller_, etc.).
     - `model`: Objetos de valor utilizados en la capa.
 
-## Levantar el proyecto
+## ▶️ Levantar el proyecto
 
-### Pre-requisitos
+### 📋 Pre-requisitos
 
-### Pruebas en entorno local
+### ✅ Pruebas en entorno local
