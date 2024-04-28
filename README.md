@@ -3,7 +3,7 @@
 - [🏗 Arquitectura y componentes de la aplicación](#-arquitectura-y-componentes-de-la-aplicación)
   - [📦 Estructura / Taxonomía de paquetes](#-estructura--taxonomía-de-paquetes)
 - [🛠 Hecho con](#-hecho-con)
-- [▶️ Levantar el proyecto](#-levantar-el-proyecto)
+- [🚀 Levantar el proyecto](#-levantar-el-proyecto)
   - [📋 Pre-requisitos](#-pre-requisitos)
   - [✅ Pruebas en entorno local](#-pruebas-en-entorno-local)
 
@@ -37,7 +37,7 @@ En resumen, este enfoque permite construir una aplicación más sólida y flexib
 - Spring Data JDBC
 - PostgreSQL
 
-## ▶️ Levantar el proyecto
+## 🚀 Levantar el proyecto
 
 ### 📋 Pre-requisitos
 
