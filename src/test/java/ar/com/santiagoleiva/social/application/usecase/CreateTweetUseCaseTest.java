@@ -1,6 +1,7 @@
 package ar.com.santiagoleiva.social.application.usecase;
 
 import ar.com.santiagoleiva.social.domain.Tweet;
+import ar.com.santiagoleiva.social.domain.User;
 import ar.com.santiagoleiva.social.domain.exception.InvalidException;
 import ar.com.santiagoleiva.social.domain.exception.NonProcessableException;
 import ar.com.santiagoleiva.social.domain.exception.NotFoundException;
@@ -30,10 +31,10 @@ import static org.mockito.Mockito.when;
 class CreateTweetUseCaseTest {
 
     @Autowired
-    private CreateTweetUseCase createTweetUseCase;
+    CreateTweetUseCase createTweetUseCase;
 
     @MockBean
-    private Clock clock;
+    Clock clock;
 
     @BeforeEach
     void beforeEach() {
@@ -80,7 +81,8 @@ class CreateTweetUseCaseTest {
         assertAll(
                 () -> assertNotNull(result.id()),
                 () -> assertEquals("Hello world!", result.content()),
-                () -> assertEquals(LocalDateTime.of(2024, Month.APRIL, 1, 10, 0, 0), result.createdAt())
+                () -> assertEquals(LocalDateTime.of(2024, Month.APRIL, 1, 10, 0, 0), result.createdAt()),
+                () -> assertEquals(new User(1L, "walter.white"), result.user())
         );
     }
 

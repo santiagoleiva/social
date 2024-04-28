@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 class FollowUserUseCaseTest {
 
     @Autowired
-    private FollowUserUseCase followUserUseCase;
+    FollowUserUseCase followUserUseCase;
 
     @Test
     @DisplayName("When `followerId` and `followedId` are the same it should throw a `NonProcessableException`")

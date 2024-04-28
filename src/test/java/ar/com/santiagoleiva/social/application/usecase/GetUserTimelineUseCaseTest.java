@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class GetUserTimelineUseCaseTest {
 
     @Autowired
-    private GetUserTimelineUseCase getUserTimelineUseCase;
+    GetUserTimelineUseCase getUserTimelineUseCase;
 
     @Test
     @DisplayName("When user is not following to anyone it should return an empty list")
