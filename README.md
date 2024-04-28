@@ -32,3 +32,17 @@ En resumen, este enfoque permite construir una aplicación más sólida y flexib
 - Docker Compose
 
 ### ✅ Pruebas en entorno local
+
+En una terminal, ubicados en la raíz del proyecto ejecutar el siguiente comando:
+
+```bash
+./gradlew clean build
+```
+
+Una vez finalizada la instancia de build, ejecutar el siguiente comando:
+
+```bash
+docker-compose up --build -d
+```
+
+Siguiendo estos pasos, se levantará la aplicación en el puerto `8080`.
