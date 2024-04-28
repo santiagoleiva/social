@@ -4,6 +4,7 @@ import ar.com.santiagoleiva.social.application.port.FindUserPort;
 import ar.com.santiagoleiva.social.application.port.UserFollowPort;
 import ar.com.santiagoleiva.social.domain.User;
 import ar.com.santiagoleiva.social.infrastructure.jdbc.model.FollowerReferenceModel;
+import ar.com.santiagoleiva.social.infrastructure.jdbc.model.FollowingReferenceModel;
 import ar.com.santiagoleiva.social.infrastructure.jdbc.model.UserJdbcModel;
 
 import java.util.List;
@@ -31,9 +32,13 @@ public class UserJdbcRepository implements FindUserPort, UserFollowPort {
     }
 
     @Override
-    public List<User> getFollowedUsersByUserId(Long followerUserId) {
-        userJdbcCrudRepository.findByFollowersFollowerUserId(followerUserId);
-        throw new IllegalStateException("Not implemented yet");
+    public List<Long> getFollowedUserIds(Long followerUserId) {
+        return userJdbcCrudRepository.findById(followerUserId)
+                .orElseThrow()
+                .following()
+                .stream()
+                .map(FollowingReferenceModel::followedUserId)
+                .toList();
     }
 
 }

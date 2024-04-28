@@ -1,6 +1,7 @@
 package ar.com.santiagoleiva.social.infrastructure.configuration;
 
 import ar.com.santiagoleiva.social.application.port.CreateTweetPort;
+import ar.com.santiagoleiva.social.application.port.FindTweetPort;
 import ar.com.santiagoleiva.social.application.port.FindUserPort;
 import ar.com.santiagoleiva.social.application.port.UserFollowPort;
 import ar.com.santiagoleiva.social.application.usecase.CreateTweetUseCase;
@@ -31,8 +32,8 @@ public class UseCaseProvider {
     }
 
     @Bean
-    public GetUserTimelineUseCase getUserTimelineUseCase() {
-        return new GetUserTimelineUseCase();
+    public GetUserTimelineUseCase getUserTimelineUseCase(UserFollowPort userFollowPort, FindTweetPort findTweetPort) {
+        return new GetUserTimelineUseCase(userFollowPort, findTweetPort);
     }
 
 }

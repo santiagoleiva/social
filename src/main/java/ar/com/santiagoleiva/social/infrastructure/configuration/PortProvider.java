@@ -1,6 +1,7 @@
 package ar.com.santiagoleiva.social.infrastructure.configuration;
 
 import ar.com.santiagoleiva.social.application.port.CreateTweetPort;
+import ar.com.santiagoleiva.social.application.port.FindTweetPort;
 import ar.com.santiagoleiva.social.application.port.FindUserPort;
 import ar.com.santiagoleiva.social.application.port.UserFollowPort;
 import ar.com.santiagoleiva.social.infrastructure.jdbc.TweetJdbcCrudRepository;
@@ -19,8 +20,11 @@ public class PortProvider {
     }
 
     @Bean
-    public TweetJdbcRepository tweetJdbcRepository(TweetJdbcCrudRepository tweetJdbcCrudRepository) {
-        return new TweetJdbcRepository(tweetJdbcCrudRepository);
+    public TweetJdbcRepository tweetJdbcRepository(
+            TweetJdbcCrudRepository tweetJdbcCrudRepository,
+            UserJdbcCrudRepository userJdbcCrudRepository
+    ) {
+        return new TweetJdbcRepository(tweetJdbcCrudRepository, userJdbcCrudRepository);
     }
 
     @Bean
@@ -35,8 +39,12 @@ public class PortProvider {
 
     @Bean
     public CreateTweetPort createTweetPort(TweetJdbcCrudRepository tweetJdbcCrudRepository) {
-        return tweetJdbcRepository(tweetJdbcCrudRepository);
+        return tweetJdbcRepository(tweetJdbcCrudRepository, null);
     }
 
+    @Bean
+    public FindTweetPort findTweetPort(TweetJdbcCrudRepository tweetJdbcCrudRepository) {
+        return tweetJdbcRepository(tweetJdbcCrudRepository, null);
+    }
 
 }
