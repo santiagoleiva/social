@@ -10,3 +10,25 @@ services:
       POSTGRES_DB: social
       POSTGRES_USER: social-user
       POSTGRES_PASSWORD: social-password
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  social-api:
+    build:
+      context: .
+      dockerfile: api.Dockerfile
+    container_name: social-api
+    ports:
+      - '8080:8080'
+    environment:
+      APP_ENV: dev
+      DATASOURCE_JDBC_URL: jdbc:postgresql://social-db:5432/social
+      DATASOURCE_USERNAME: social-user
+      DATASOURCE_PASSWORD: social-password
+    depends_on:
+      social-db:
+        condition: service_healthy
+    restart: always
