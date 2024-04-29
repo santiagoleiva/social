@@ -43,6 +43,7 @@ En resumen, este enfoque permite construir una aplicación más sólida y flexib
 - SpringBoot (v3.2.5)
 - Spring Data JDBC
 - PostgreSQL
+- OpenAPI + Swagger
 
 ## 🚀 Levantar el proyecto
 
