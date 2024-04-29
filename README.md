@@ -10,7 +10,7 @@
       - [Tweets](#tweets)
       - [Follow](#follow)
       - [Timeline](#timeline)
-    - 📖 [API docs](#-api-docs)
+  - 📖 [API docs](#-api-docs)
 - ⚠️ [To-Do](#-to-do)
 
 ## 🏗️ Arquitectura y componentes de la aplicación
@@ -173,7 +173,7 @@ Respuesta esperada en caso de éxito
 ]
 ```
 
-#### 📖 API docs
+### 📖 API docs
 
 Se puede acceder a la documentación de la API rest a través de las siguientes rutas:
 
